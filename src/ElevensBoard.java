@@ -67,6 +67,10 @@ public class ElevensBoard extends Board {
     @Override
     public boolean anotherPlayIsPossible() {//check dealt list
         /* *** TO BE IMPLEMENTED IN ACTIVITY 9 *** */
+        if(containsJQK() || containsPairSum11())
+            return true;
+            return false;
+
     }
 
     /**
