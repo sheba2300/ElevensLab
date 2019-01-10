@@ -90,10 +90,14 @@ public class ElevensBoard extends Board {
      *              contain an 11-pair; false otherwise.
      */
     private boolean containsPairSum11(List<Integer> selectedCards) {
-
-                if(cardAt(0).pointValue() + cardAt(1).pointValue() == 11)
+        for(int i =0;i<selectedCards.size()-1;i++)
+        {
+            for(int a =i+1;a<selectedCards.size();a++)
+            {
+                if (cardAt(i).pointValue() + cardAt(a).pointValue() == 11)
                     return true;
-
+            }
+        }
         return false;
         /* *** TO BE IMPLEMENTED IN ACTIVITY 9 *** */
     }
