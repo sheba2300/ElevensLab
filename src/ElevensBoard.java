@@ -53,20 +53,13 @@ public class ElevensBoard extends Board {
      */
     @Override
     public boolean isLegal(List<Integer> selectedCards) {
-        if(containsPairSum11(selectedCards) && !containsJQK(selectedCards))
+        if(containsPairSum11(selectedCards) || containsJQK(selectedCards))
         {
-            int su
+            return true;
         }
         else
         {
-            if(!containsPairSum11(selectedCards) && containsJQK(selectedCards))
-            {
-
-            }
-            else
-            {
-
-            }
+            return false;
         }
     }
 
