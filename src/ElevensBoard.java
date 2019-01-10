@@ -114,15 +114,15 @@ public class ElevensBoard extends Board {
         return false;
         for(int x =0; x< selectedCards.size(); x++)
         {
-            if(cardAt(x).rank().equals("King"))
+            if(cardAt(selectedCards.get(x)).rank().equals("king"))
             {
                 k = true;
             }
-            if(cardAt(x).rank().equals("Queen"))
+            if(cardAt(selectedCards.get(x)).rank().equals("queen"))
             {
                 q = true;
             }
-            if(cardAt(x).rank().equals("Jack"))
+            if(cardAt(selectedCards.get(x)).rank().equals("jack"))
             {
                 j = true;
             }
