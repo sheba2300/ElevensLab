@@ -9,7 +9,7 @@ public class TensBoard extends Board {
     /**
      * The size (number of cards) on the board.
      */
-    private static final int BOARD_SIZE = 9;
+    private static final int BOARD_SIZE = 13;
 
     /**
      * The ranks of the cards for this game to be sent to the deck.
@@ -53,7 +53,7 @@ public class TensBoard extends Board {
      */
     @Override
     public boolean isLegal(List<Integer> selectedCards) {
-        if(selectedCards.size() ==3) {
+        if(selectedCards.size() ==4) {
             return containsJQK(selectedCards);
         }
         if(selectedCards.size() == 2) {
@@ -96,7 +96,7 @@ public class TensBoard extends Board {
         {
             for(int a =i+1;a<selectedCards.size();a++)
             {
-                if (cardAt(selectedCards.get(i)).pointValue() + cardAt(selectedCards.get(a)).pointValue() == 11)
+                if (cardAt(selectedCards.get(i)).pointValue() + cardAt(selectedCards.get(a)).pointValue() == 10)
                     return true;
             }
         }
@@ -113,31 +113,31 @@ public class TensBoard extends Board {
      *              include a jack, a queen, and a king; false otherwise.
      */
     private boolean containsJQK(List<Integer> selectedCards) {
-        boolean j = false;
-        boolean k = false;
-        boolean q = false;
-        boolean ten = false;
+        int jCount = 0;
+        int kCount = 0;
+        int qCount = 0;
+        int tenCount = 0;
 
         for(int x =0; x< selectedCards.size(); x++)
         {
             if(cardAt(selectedCards.get(x)).rank().equals("king"))
             {
-                k = true;
+                kCount++;
             }
             if(cardAt(selectedCards.get(x)).rank().equals("queen"))
             {
-                q = true;
+                qCount++;
             }
             if(cardAt(selectedCards.get(x)).rank().equals("jack"))
             {
-                j = true;
+                jCount++;
             }
-            if(cardAt(selectedCards.get(x)).rank().equals("ten"))
+            if(cardAt(selectedCards.get(x)).rank().equals("10"))
             {
-                ten = true;
+                tenCount++;
             }
         }
-        if(j && q && k && ten)
+        if(jCount ==4 || qCount == 4  || kCount == 4 || tenCount == 4 )
         {
             return true;
         }
