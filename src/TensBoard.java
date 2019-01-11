@@ -27,7 +27,7 @@ public class TensBoard extends Board {
      * The values of the cards for this game to be sent to the deck.
      */
     private static final int[] POINT_VALUES =
-            {1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 0, 0, 0};
+            {1, 2, 3, 4, 5, 6, 7, 8, 9, 0, 0, 0, 0};
 
     /**
      * Flag used to control debugging print statements.
@@ -96,8 +96,10 @@ public class TensBoard extends Board {
         {
             for(int a =i+1;a<selectedCards.size();a++)
             {
-                if (cardAt(selectedCards.get(i)).pointValue() + cardAt(selectedCards.get(a)).pointValue() == 10)
+                if (cardAt(selectedCards.get(i)).pointValue() + cardAt(selectedCards.get(a)).pointValue() == 10) {
                     return true;
+                }
+
             }
         }
         return false;
@@ -139,6 +141,7 @@ public class TensBoard extends Board {
         }
         if(jCount ==4 || qCount == 4  || kCount == 4 || tenCount == 4 )
         {
+
             return true;
         }
         return false;
